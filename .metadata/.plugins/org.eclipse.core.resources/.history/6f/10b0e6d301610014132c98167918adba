@@ -1,0 +1,13 @@
+package modelos;
+
+import java.util.List;
+
+public class Venda {
+
+	private Double totalVenda;
+	private Double comissaoRepresentante;
+	private List<Produto> produtos;
+	private Representante nome;
+	
+//	venda tem uma lista de produtos e um representante
+}

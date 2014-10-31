@@ -1,0 +1,34 @@
+package modelos;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.RollbackException;
+
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import futebol.Time;
+
+public class CatalogoTest {
+	
+	private static EntityManager em;
+
+	@BeforeClass
+	public static void startEntityManager() throws Exception {
+
+		EntityManagerFactory emf = Persistence
+				.createEntityManagerFactory("betapedia-test");
+		em = emf.createEntityManager();
+	}
+
+	@Test(expected = RollbackException.class)
+	public void nomeCatalogoObrigatorio() {
+		Catalogo c = new Catalogo();
+		em.getTransaction().begin();
+		em.persist(c);
+		em.getTransaction().commit();
+	}
+
+
+}

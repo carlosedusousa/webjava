@@ -1,0 +1,34 @@
+package modelos;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.RollbackException;
+
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import futebol.Funcionario;
+
+public class RepresentanteTest {
+
+	private static EntityManager em;
+
+	@BeforeClass
+	public static void startEntityManager() throws Exception {
+
+		EntityManagerFactory emf = Persistence
+				.createEntityManagerFactory("betapedia-test");
+		em = emf.createEntityManager();
+	}
+	
+	// Testar insercao no banco sem nome. roolback desfaz a falha de insercao.
+		@Test(expected = RollbackException.class)
+		public void nomeObrigatorio() {
+			Representante r = new Representante();
+			em.getTransaction().begin();
+			em.persist(r);
+			em.getTransaction().commit();
+
+		}
+}
