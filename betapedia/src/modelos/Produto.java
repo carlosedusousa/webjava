@@ -8,13 +8,16 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
+// Nomeando a tablela no banco.
 @Table(name = "produtos")
 public class Produto {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id", unique = true)
 	private Integer id;
 
+	// Nome obrigatorio do produto.
 	@Column(name = "nome", nullable = false, unique = true)
 	private String nome;
 
@@ -24,6 +27,7 @@ public class Produto {
 	@Column(name = "valor")
 	private Double valor;
 
+	// A JPA obriga ter um construtor vazio.
 	public Produto() {
 	}
 
@@ -31,6 +35,7 @@ public class Produto {
 		setNome(nome);
 	}
 
+	// Construtor da classe Produto.
 	public Produto(String nome, String descricao, Double valor) {
 		setNome(nome);
 		setDescricao(descricao);

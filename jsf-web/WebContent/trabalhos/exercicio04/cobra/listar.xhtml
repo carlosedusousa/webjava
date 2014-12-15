@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:body>
+
+	<ui:composition template="/layout.xhtml">
+		<ui:define name="content">
+
+			<hr />
+			<h1>Lista de Cobras - Exercício 04</h1>
+
+			<h:form>
+				<h:dataTable styleClass="table table-striped" var="cobra"
+					value="#{cobraBean.cobras}">
+					<h:column>
+						<f:facet name="header">Nome</f:facet>
+                        #{cobra.nome}
+                    </h:column>
+
+					<h:column>
+						<f:facet name="header">Data da Captura</f:facet>
+						<h:outputText value="#{cobra.captura}">
+							<f:convertDateTime pattern="dd/mm/yyyy" />
+						</h:outputText>
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Tamanho</f:facet>
+						<h:outputText value="#{cobra.tamanho}">
+							<f:convertNumber pattern="#.00" />
+						</h:outputText>
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Peso</f:facet>
+						<h:outputText value="#{cobra.peso}">
+							<f:convertNumber pattern="#.00" />
+						</h:outputText>
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Acões</f:facet>
+						<h:commandLink value="Remover" action="#{cobraBean.remove}"
+							class="text-danger" title="Remova este registro!">
+							<f:setPropertyActionListener target="#{cobraBean.cobra}"
+								value="#{cobra}" />
+						</h:commandLink>
+					</h:column>
+				</h:dataTable>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:body>
+	<ui:composition template="/layout.xhtml">
+		<ui:define name="content">
+		
+			<hr />
+			<h1>Cadastro de Cliente - Exercício 07</h1>
+
+			<h:form styleClass="form-horizontal" id="pForm">
+				<div class="form-group">
+					<h:outputLabel for="nome" value="Nome" styleClass="col-sm-2" />
+					<div class="col-sm-7">
+						<h:inputText id="nome" value="#{monsterBean7.cliente.nome}"
+							styleClass="form-control" required="true" />
+					</div>
+					
+                    <div class="col-sm-3">
+                        <h:message for="nome" />
+                    </div>
+				</div>
+				
+				<div class="form-group">
+                    <h:outputLabel for="email" value="E-mail" styleClass="col-sm-2" />
+                    <div class="col-sm-7">
+                        <h:inputText id="email" value="#{monsterBean7.cliente.email}"
+                            styleClass="form-control" required="true" />
+                    </div>
+                    
+                    <div class="col-sm-3">
+                        <h:message for="email" />
+                    </div>
+                </div>
+				
+				<div class="form-group">
+                    <h:outputLabel for="date" value="Nascimento" styleClass="col-sm-2" />
+                    <div class="col-sm-7">
+                        <h:inputText id="date" value="#{monsterBean7.cliente.nascimento}"
+                            styleClass="form-control" required="true">
+                            <f:convertDateTime pattern="yyyy-mm-dd" />
+                        </h:inputText>
+                    </div>
+                    
+                    <div class="col-sm-3">
+                        <h:message for="date" />
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <h:outputLabel for="telefone" value="Telefone" styleClass="col-sm-2" />
+                    <div class="col-sm-7">
+                        <h:inputText id="telefone" value="#{monsterBean7.cliente.telefone}"
+                            styleClass="form-control" required="true">
+                            <f:converter converterId="telefoneConverter" />
+                            <f:validator validatorId="telefoneValidator" />
+                        </h:inputText>
+                    </div>
+                    <div class="col-sm-3">
+                        <h:message for="telefone" />
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <h:outputLabel for="cpf" value="CPF" styleClass="col-sm-2" />
+                    <div class="col-sm-7">
+                        <h:inputText id="cpf" value="#{monsterBean7.cliente.CPF}"
+                            styleClass="form-control" required="true">
+                            <f:converter converterId="cpfConverter" />
+                            <f:validator validatorId="cpfValidator" />
+                        </h:inputText>
+                    </div>
+                    <div class="col-sm-3">
+                        <h:message for="cpf" />
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <h:outputLabel for="rg" value="RG" styleClass="col-sm-2" />
+                    <div class="col-sm-7">
+                        <h:inputText id="rg" value="#{monsterBean7.cliente.RG}"
+                            styleClass="form-control" required="true" converter="rgConverter" />
+                    </div>
+                    <div class="col-sm-3">
+                        <h:message for="rg" />
+                    </div>
+                </div>
+
+				<div class="btn-group" role="group">
+					<h:commandButton value="Enviar" action="#{monsterBean7.add}"
+						styleClass="btn btn-primary" />
+					<h:commandButton value="Limpar" action="#{monsterBean7.clearCadastro}"
+						styleClass="btn btn-info" />
+				</div>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+</html>

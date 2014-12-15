@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:body>
+	<ui:composition template="/layout.xhtml">
+		<ui:define name="content">
+
+			<hr />
+			<h1>Cadastro de Vendedor - Exercício 05</h1>
+
+			<h:form styleClass="form-horizontal" id="pForm">
+				<div class="form-group">
+					<h:outputLabel for="nome" value="Nome" styleClass="col-sm-2" />
+					<div class="col-sm-7">
+						<h:inputText id="nome" value="#{vendedorBean.vendedor.nome}"
+							styleClass="form-control" required="true" />
+					</div>
+					<div class="col-sm-3">
+						<h:message for="nome" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<h:outputLabel for="date" value="Data de Nascimento"
+						styleClass="col-sm-2" />
+					<div class="col-sm-7">
+						<h:inputText id="date" value="#{vendedorBean.vendedor.nascimento}"
+							styleClass="form-control" required="true">
+							<f:convertDateTime pattern="dd/mm/yyyy" />
+						</h:inputText>
+					</div>
+					<div class="col-sm-3">
+						<h:message for="date" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<h:outputLabel for="endereco" value="Endereço"
+						styleClass="col-sm-2" />
+					<div class="col-sm-7">
+						<h:inputText id="endereco"
+							value="#{vendedorBean.vendedor.endereco}"
+							styleClass="form-control" required="true">
+						</h:inputText>
+					</div>
+					<div class="col-sm-3">
+						<h:message for="endereco" />
+					</div>
+				</div>
+
+				<div class="btn-group" role="group">
+					<h:commandButton value="Enviar" action="#{vendedorBean.add}"
+						styleClass="btn btn-primary" />
+					<h:commandButton value="Limpar"
+						action="#{vendedorBean.clearCadastro}" styleClass="btn btn-info" />
+				</div>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+</html>

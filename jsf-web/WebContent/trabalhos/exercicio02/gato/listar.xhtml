@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:body>
+
+	<ui:composition template="/layout.xhtml">
+		<ui:define name="content">
+
+			<hr />
+			<h1>Lista de Gatos - Exercício 02</h1>
+
+			<h:form>
+				<h:dataTable styleClass="table table-striped" var="cat"
+					value="#{catBean.cats}">
+					<h:column>
+						<f:facet name="header">Nome</f:facet>
+                        #{cat.nome}
+                    </h:column>
+
+					<h:column>
+						<f:facet name="header">Raça</f:facet>
+                        #{cat.raca}
+                    </h:column>
+
+					<h:column>
+						<f:facet name="header">Idade</f:facet>
+                        #{cat.idade}
+                    </h:column>
+
+					<h:column>
+						<f:facet name="header">Acões</f:facet>
+						<h:commandLink value="Remover" action="#{catBean.remove}"
+							class="text-danger" title="Remova este registro!">
+							<f:setPropertyActionListener target="#{catBean.cat}"
+								value="#{cat}" />
+						</h:commandLink>
+					</h:column>
+				</h:dataTable>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:body>
+	<ui:composition template="/layout.xhtml">
+		<ui:define name="content">
+
+			<hr />
+			<h1>Cadastro de Iguana - Exercício 03</h1>
+
+			<h:form styleClass="form-horizontal" id="pForm">
+
+				<div class="form-group">
+					<h:outputLabel for="nome" value="Nome" styleClass="col-sm-2" />
+					<div class="col-sm-7">
+						<h:inputText id="nome" value="#{iguanaBean.iguana.nome}"
+							styleClass="form-control" required="true" />
+					</div>
+
+					<div class="col-sm-3">
+						<h:message for="nome" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<h:outputLabel for="idade" value="Idade" styleClass="col-sm-2" />
+					<div class="col-sm-7">
+						<h:inputText id="idade" value="#{iguanaBean.iguana.idade}"
+							styleClass="form-control" required="true" size="3" maxlength="3"/>
+					</div>
+
+					<div class="col-sm-3">
+						<h:message for="idade" />
+					</div>
+				</div>
+
+				<div class="btn-group" role="group">
+					<h:commandButton value="Enviar" action="#{iguanaBean.add}"
+						styleClass="btn btn-primary" />
+					<h:commandButton value="Limpar"
+						action="#{iguanaBean.clearCadastro}" styleClass="btn btn-info" />
+				</div>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+</html>

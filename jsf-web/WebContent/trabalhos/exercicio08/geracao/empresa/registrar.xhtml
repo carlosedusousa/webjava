@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:body>
+	<ui:composition template="/layout.xhtml">
+		<ui:define name="content">
+
+			<hr />
+			<h1>Cadastro de Empresa - Exercício 08</h1>
+
+			<h:form styleClass="form-horizontal" id="pForm">
+				<div class="form-group">
+					<h:outputLabel for="nome" value="Nome" styleClass="col-sm-2" />
+					<div class="col-sm-7">
+						<h:inputText id="nome" value="#{empresaBean.empresa.nome}"
+							styleClass="form-control" />
+					</div>
+					<div class="col-sm-3">
+						<h:message for="nome" />
+					</div>
+				</div>
+				<div class="form-group">
+					<h:outputLabel for="cnpj" value="CNPJ" styleClass="col-sm-2" />
+					<div class="col-sm-7">
+						<h:inputText id="cnpj" value="#{empresaBean.empresa.cnpj}"
+							styleClass="form-control">
+							<f:validator validatorId="cnpjValidator" />
+						</h:inputText>
+					</div>
+					<div class="col-sm-3">
+						<h:message for="cnpj" />
+					</div>
+				</div>
+				<div class="form-group">
+					<h:outputLabel for="telefone" value="Telefone"
+						styleClass="col-sm-2" />
+					<div class="col-sm-7">
+						<h:inputText id="telefone" value="#{empresaBean.empresa.telefone}"
+							styleClass="form-control">
+						</h:inputText>
+					</div>
+					<div class="col-sm-3">
+						<h:message for="telefone" />
+					</div>
+				</div>
+				<div class="form-group">
+					<h:outputLabel for="email" value="E-mail" styleClass="col-sm-2" />
+					<div class="col-sm-7">
+						<h:inputText id="email" value="#{empresaBean.empresa.email}"
+							styleClass="form-control"
+							validatorMessage="Formato do email está incorreto">
+							<f:validateRegex
+								pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+						</h:inputText>
+					</div>
+					<div class="col-sm-3">
+						<h:message for="email" />
+					</div>
+				</div>
+				<div class="form-group">
+					<h:outputLabel for="nomeResponsavel" value="Nome do Responsavel"
+						styleClass="col-sm-2" />
+					<div class="col-sm-7">
+						<h:inputText id="nomeResponsavel"
+							value="#{empresaBean.empresa.responsavel}"
+							styleClass="form-control" />
+					</div>
+					<div class="col-sm-3">
+						<h:message for="nomeResponsavel" />
+					</div>
+				</div>
+				<div class="btn-group" role="group">
+					<h:commandButton value="Send" action="#{empresaBean.add}"
+						styleClass="btn btn-primary" />
+					<h:commandButton value="Clear" action="#{empresaBean.clearCadastro}"
+						styleClass="btn btn-info" />
+				</div>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

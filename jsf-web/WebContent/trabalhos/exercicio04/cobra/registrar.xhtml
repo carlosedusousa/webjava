@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:body>
+	<ui:composition template="/layout.xhtml">
+		<ui:define name="content">
+
+			<hr />
+			<h1>Cadastro de Cobra - Exercício 04</h1>
+
+			<h:form styleClass="form-horizontal" id="pForm">
+  
+				<div class="form-group">
+
+					<h:outputLabel for="nome" value="Nome" styleClass="col-sm-2" />
+
+					<div class="col-sm-7">
+						<h:inputText id="nome" value="#{cobraBean.cobra.nome}"
+							styleClass="form-control" required="true" />
+					</div>
+					<div class="col-sm-3">
+						<h:message for="nome" />
+					</div>
+				</div>
+
+				<div class="form-group">
+
+					<h:outputLabel for="date" value="Data da Captura" styleClass="col-sm-2" />
+
+					<div class="col-sm-7">
+
+						<h:inputText id="date" value="#{cobraBean.cobra.captura}"
+							styleClass="form-control" required="true">
+							<f:convertDateTime pattern="dd/mm/yyyy" />
+						</h:inputText>
+
+					</div>
+					<div class="col-sm-3">
+						<h:message for="date" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<h:outputLabel for="tamanho" value="Tamanho" styleClass="col-sm-2" />
+					<div class="col-sm-7">
+						<h:inputText id="tamanho" value="#{cobraBean.cobra.tamanho}"
+							styleClass="form-control" required="true">
+							<f:convertNumber pattern="#0.00" />
+						</h:inputText>
+					</div>
+					<div class="col-sm-3">
+						<h:message for="tamanho" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<h:outputLabel for="peso" value="Peso" styleClass="col-sm-2" />
+					<div class="col-sm-7">
+						<h:inputText id="peso" value="#{cobraBean.cobra.peso}"
+							styleClass="form-control" required="true">
+							<f:convertNumber pattern="#0.00" />
+						</h:inputText>
+					</div>
+					<div class="col-sm-3">
+						<h:message for="peso" />
+					</div>
+				</div>
+
+				<div class="btn-group" role="group">
+					<h:commandButton value="Enviar" action="#{cobraBean.add}"
+						styleClass="btn btn-primary" />
+					<h:commandButton value="Limpar" action="#{cobraBean.clearCadastro}"
+						styleClass="btn btn-info" />
+				</div>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+</html>

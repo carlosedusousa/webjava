@@ -1,0 +1,12 @@
+body {
+	margin-top: 80px;
+}
+
+.funcionario {
+	border-bottom: 1px gray solid;
+}
+
+.funcionario .nome {
+	color: #883300;
+	border-bottom: 1px gray dashed;
+}

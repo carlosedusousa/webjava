@@ -52,9 +52,9 @@ public class ProdutoTest {
 	// Teste para insercao do nome e consulta da insercao com sucesso.
 	@Test
 	public void inserirProduto() {
-		Produto p = new Produto("Nescal", "Lata 500g", 6.99);
+		Produto produto = new Produto("Nescal", "Lata 500g", 6.99);
 		em.getTransaction().begin();
-		em.persist(p);
+		em.persist(produto);
 		em.getTransaction().commit();
 	}
 

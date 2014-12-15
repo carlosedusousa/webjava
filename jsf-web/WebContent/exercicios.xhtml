@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+<h:body>
+	<ui:composition template="/layout.xhtml">
+		<ui:define name="content">
+			<div class="container">
+				<h1>Exercícios:</h1>
+				<hr />
+				<h2>
+					<strong>Trabalho 3</strong> <small>(Entrega: 09/12/2014)</small>
+				</h2>
+				<ul>
+					<li class="text-warning">Nome do Banco de Dados: <strong>ggjaera</strong></li>
+					<li class="text-danger"><strong>Este trabalho possui
+							o super poder de remover a menor nota da planilha do mal</strong></li>
+					<li>Entregar os exercícios do 1 ao 10</li>
+					<li>Implementar todos dentro de um mesmo projeto, separando-os
+						utilizando pacotes (exercicio01, exercicio02, ...) [src e
+						WebContent, menos o layout]</li>
+					<li>Tornar todos PERSISTIDOS, isto é, integrar com a JPA</li>
+					<li>Utilize um layout único, com uma navegação única para
+						todos eles</li>
+					<li>O Projeto deve estar utilizando UTF-8!</li>
+				</ul>
+				<hr />
+				<h2>Exercicio 1</h2>
+				<ul>
+					<li>Criar um modelo de dados <strong>não persistido</strong>
+						chamado Cachorro
+					</li>
+					<li>O cachorro possui um nome, raça e idade</li>
+					<li>Criar um bean gerenciavel chamado CachorroBean</li>
+					<li>O bean gerencia um formulário e uma página de listagem de
+						cachorros</li>
+					<li>Desenvolva as duas páginas de forma que se comuniquem com
+						o Bean</li>
+				</ul>
+				<h2>Exercicio 2</h2>
+				<ul>
+					<li>Criar um modelo de dados <strong>não persistido</strong>
+						chamado Gato
+					</li>
+					<li>O gato possui um nome, raça e idade</li>
+					<li>Criar um bean gerenciavel, com suporte a sessão chamado
+						GatoBean</li>
+					<li>Criar 2 páginas conectadas entre si, uma página de
+						registro e outra de listagem</li>
+					<li>Ao finalizar o cadastro de algum registro se faz
+						necessário mostar a página de listagem</li>
+				</ul>
+				<h2>Exercicio 3</h2>
+				<ul>
+					<li>Criar um modelo de dados <strong>não persistido</strong>
+						chamado Iguana
+					</li>
+					<li>A iguana possui um nome e idade</li>
+					<li>Criar um bean gerenciavel, com suporte a sessão chamado
+						IguanaBean</li>
+					<li>Criar 2 páginas conectadas entre si, uma página de
+						registro e outra de listagem</li>
+					<li>Ao finalizar o cadastro de algum registro se faz
+						necessário mostar a página de listagem</li>
+					<li>Defina um layout único para página de registro e listagem</li>
+					<li>Este layout possui um conteúdo e um header</li>
+					<li>O header possuí os links de navegação de entre os links</li>
+					<li>Crie duas páginas com qualquer conteúdo: uma com apenas o
+						conteúdo definido e outra com apenas o header definido</li>
+				</ul>
+				<h2>Exercicio 4</h2>
+				<ul>
+					<li>Criar um modelo de dados <strong>não persistido</strong>
+						chamado Cobra
+					</li>
+					<li>A cobra possui um nome, dia de captura, tamanho e peso</li>
+					<li>Criar um bean gerenciavel, com suporte a sessão chamado
+						CobraBean</li>
+					<li>Criar 2 páginas conectadas entre si, uma página de
+						registro e outra de listagem</li>
+					<li>A página de listagem tem suporte a remoção do lado listado</li>
+					<li>Defina um layout único para página de registro e listagem</li>
+					<li>Este layout possui um conteúdo e um header</li>
+					<li>Este layout possui uma barra de navegação entre as 2
+						paginas</li>
+					<li>Exiba os valores no padrão de exibição brasileiro</li>
+				</ul>
+				<h2>Exercicio 5</h2>
+				<ul>
+					<li>Betainc. precisa salvar sua lista de clientes.</li>
+					<li>Estes clientes possuem: nome, data de nascimento, endereço
+						e a quantidade de reais que já gastou.</li>
+					<li>Além dos clientes é necessário cadastrar os vendedores,
+						estes possuem como dados: nome, data de nascimento, endereço e a
+						sua lista de clientes</li>
+					<li>Desenvolver uma app JSF que gerencie o cadastro, a
+						listagem e a remoção destes dados</li>
+					<li>Tente deixar a aplicação bonita se for capaz</li>
+				</ul>
+				<h2>Exercicio 6</h2>
+				<ul>
+					<li>Monster Care LTDA. precisa de um sistema para gerenciar
+						seus clientes</li>
+					<li>Seus clientes são cadastrados com nome, email, data de
+						nascimento e telefone</li>
+					<li>O telefone é de tipo numerico que possui uma máscara que
+						seja compatível com o exemplo: (48) 5544-3344</li>
+					<li>A data de nascimento do tipo date deve ser inserido no
+						formato que suporte o exemplo: 2014-10-30</li>
+					<li>Todos os campos são obrigatórios</li>
+					<li>Implemente tudo utilizando JSF e DEPOIS deixe bonito</li>
+				</ul>
+				<h2>Exercicio 7</h2>
+				<ul>
+					<li>Atualize o exercício 6</li>
+					<li>Adicione os campos CPF (Long) e RG (String sem caracteres
+						especiais) para os clientes</li>
+					<li>Crie conversores para ambos os campos acima</li>
+					<li>Aplique validação para o formato de Telefone e CPF</li>
+				</ul>
+				<h2>Exercicio 8</h2>
+				<ul>
+					<li>GeraçãoTec precisa cadastrar empresas e a vagas de emprego
+						destas empresas.</li>
+					<li>As empresas possuem: nome fantasia, cnpj, telefone, email,
+						nome do responsável e vagas de emprego</li>
+					<li>As vagas de emprego possuem: titulo, descrição e uma lista
+						de habilidade necessárias</li>
+					<li>A lista de habilidades é repassada pela camada de view
+						como uma string, aonde cada habilidade está separada por vírgular
+						uma da outra, fazendo-se necessário converter esses dados</li>
+					<li>Telefone, cnpj e email precisam ter seus formatos
+						validados: (xx) xxxxxxxx para telefone, os outros dados de acordo
+						com os padrões</li>
+					<li>A empresa possui vagas, essa regra deve ser seguida
+						inclusive na camada de apresentação.</li>
+				</ul>
+				<h2>Exercicio 9</h2>
+				<ul>
+					<li>Persistir os exercícios 1 e 2</li>
+				</ul>
+				<h2>Exercicio 10</h2>
+				<ul>
+					<li>Reescreva o exercício 6 colocando paginação na exibição
+						dos resultados. Cada página deve mostrar no máximo 2 itens.</li>
+				</ul>
+				<br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+			</div>
+			
+			
+			
+			</ui:define>
+			
+			</ui:composition>
+
+
+		</h:body>
+</html>

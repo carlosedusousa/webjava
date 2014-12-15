@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:body>
+	<ui:composition template="/layout.xhtml">
+		<ui:define name="content">
+
+			<hr />
+			<h1>Lista de Clientes - Exercício 05</h1>
+
+			<h:form>
+				<h:dataTable styleClass="table table-striped" var="cliente"
+					value="#{clienteBean.clientes}">
+					<h:column>
+						<f:facet name="header">Nome</f:facet>
+                        #{cliente.nome}
+                    </h:column>
+
+					<h:column>
+						<f:facet name="header">Nascimento</f:facet>
+						<h:outputText value="#{cliente.nascimento}">
+							<f:convertDateTime pattern="dd/mm/yyyy" />
+						</h:outputText>
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Endereco</f:facet>
+						<h:outputText value="#{cliente.endereco}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Gasto</f:facet>
+						<h:outputText value="#{cliente.gasto}">
+							<f:convertNumber pattern="000.00" />
+						</h:outputText>
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Acões</f:facet>
+						<h:commandLink value="Remover" action="#{clienteBean.remove}"
+							class="text-danger" title="Remova este registro!">
+							<f:setPropertyActionListener target="#{clienteBean.cliente}"
+								value="#{cliente}" />
+						</h:commandLink>
+					</h:column>
+				</h:dataTable>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+</html>

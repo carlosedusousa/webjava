@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:body>
+
+	<ui:composition template="/layout.xhtml">
+		<ui:define name="content">
+
+			<hr />
+			<h1>Lista de Iguanas - Exercício 03</h1>
+
+			<h:form>
+				<h:dataTable styleClass="table table-striped" var="iguana"
+					value="#{iguanaBean.iguanas}">
+					<h:column>
+						<f:facet name="header">Nome</f:facet>
+                        #{iguana.nome}
+                    </h:column>
+
+					<h:column>
+						<f:facet name="header">Idade</f:facet>
+                        #{iguana.idade}
+                    </h:column>
+
+					<h:column>
+						<f:facet name="header">Acões</f:facet>
+						<h:commandLink value="Remover" action="#{iguanaBean.remove}"
+							class="text-danger" title="Remova este registro!">
+							<f:setPropertyActionListener target="#{iguanaBean.iguana}"
+								value="#{iguana}" />
+						</h:commandLink>
+					</h:column>
+				</h:dataTable>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+</html>

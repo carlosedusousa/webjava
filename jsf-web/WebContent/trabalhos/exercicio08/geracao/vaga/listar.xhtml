@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:body>
+	<ui:composition template="/layout.xhtml">
+		<ui:define name="content">
+
+			<hr />
+			<h1>Lista de Vagas - Exercício 08</h1>
+
+			<h:form>
+				<h:dataTable styleClass="table table-striped" var="vaga"
+					value="#{vagaBean.vagas}">
+					<h:column>
+						<f:facet name="header">Titulo</f:facet>
+                        #{vaga.titulo}
+                    </h:column>
+
+					<h:column>
+						<f:facet name="header">Descricao</f:facet>
+                        #{vaga.descricao}
+                    </h:column>
+
+					<h:column>
+						<f:facet name="header">Habilidades</f:facet>
+						<h:outputText value="#{vaga.habilidades}"
+							converter="arrayStringConverter" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Acões</f:facet>
+						<h:commandLink value="Remover" action="#{vagaBean.remove}"
+							class="text-danger" title="Remova este registro!">
+                            <f:setPropertyActionListener
+								target="#{vagaBean.vaga}" value="#{vaga}" />
+						</h:commandLink>
+					</h:column>
+				</h:dataTable>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+</html>

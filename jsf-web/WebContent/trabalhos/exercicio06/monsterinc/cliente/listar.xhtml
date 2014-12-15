@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+	<ui:composition template="/layout.xhtml">
+		<ui:define name="content">
+
+			<hr />
+			<h1>Lista de Clientes - Exercícios 06 e 10(paginação)</h1>
+
+
+			<h:form>
+				<p:dataTable styleClass="table table-striped" var="cliente"
+					value="#{monsterBean.clientes}" lazy="true" paginator="true"
+					rows="2">
+					<p:column>
+						<f:facet name="header">Nome</f:facet>
+                        #{cliente.nome}
+                    </p:column>
+
+					<p:column>
+						<f:facet name="header">Email</f:facet>
+                        #{cliente.email}
+                    </p:column>
+
+					<p:column>
+						<f:facet name="header">Nascimento</f:facet>
+						<h:outputText value="#{cliente.nascimento}">
+							<f:convertDateTime pattern="yyyy-mm-dd" />
+						</h:outputText>
+					</p:column>
+
+					<p:column>
+						<f:facet name="header">Telefone</f:facet>
+						<h:outputText value="#{cliente.telefone}"
+							converter="telefoneConverter" />
+					</p:column>
+
+					<p:column>
+						<f:facet name="header">Acões</f:facet>
+						<h:commandLink value="Remover" action="#{monsterBean.remove}"
+							class="text-danger" title="Remova este registro!">
+							<f:setPropertyActionListener target="#{monsterBean.cliente}"
+								value="#{cliente}" />
+						</h:commandLink>
+					</p:column>
+				</p:dataTable>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+</html>
